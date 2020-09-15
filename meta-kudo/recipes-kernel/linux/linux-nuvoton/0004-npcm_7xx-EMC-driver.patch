@@ -1,0 +1,25 @@
+From bbea160eaf5e73e6be18bbb364d8e99f373c08f8 Mon Sep 17 00:00:00 2001
+From: lancelot <lancelot.kao@fii-usa.com>
+Date: Fri, 11 Sep 2020 15:14:39 -0500
+Subject: [PATCH 4/4] npcm_7xx EMC driver
+
+---
+ drivers/net/ethernet/nuvoton/npcm7xx_emc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/nuvoton/npcm7xx_emc.c b/drivers/net/ethernet/nuvoton/npcm7xx_emc.c
+index 9872da33fa5d..f07449e2f68d 100644
+--- a/drivers/net/ethernet/nuvoton/npcm7xx_emc.c
++++ b/drivers/net/ethernet/nuvoton/npcm7xx_emc.c
+@@ -1752,7 +1752,7 @@ static void get_mac_address(struct net_device *dev)
+ 
+ 	mac_address = of_get_mac_address(np);
+ 
+-	if (mac_address != 0)
++	if (!IS_ERR(mac_address))
+ 		ether_addr_copy(dev->dev_addr, mac_address);
+ 
+ 	if (is_valid_ether_addr(dev->dev_addr)) {
+-- 
+2.17.1
+

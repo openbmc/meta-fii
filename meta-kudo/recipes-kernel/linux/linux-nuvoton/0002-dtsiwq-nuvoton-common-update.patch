@@ -1,0 +1,58 @@
+From 532654c727f28419079d6041c65d8937453d39cd Mon Sep 17 00:00:00 2001
+From: lancelot <lancelot.kao@fii-usa.com>
+Date: Fri, 11 Sep 2020 15:06:26 -0500
+Subject: [PATCH 2/3] dtsiwq nuvoton common update
+
+---
+ arch/arm/boot/dts/nuvoton-common-npcm7xx.dtsi | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nuvoton-common-npcm7xx.dtsi b/arch/arm/boot/dts/nuvoton-common-npcm7xx.dtsi
+index 58899ccba505..a7fabf7b1a3b 100644
+--- a/arch/arm/boot/dts/nuvoton-common-npcm7xx.dtsi
++++ b/arch/arm/boot/dts/nuvoton-common-npcm7xx.dtsi
+@@ -230,10 +230,10 @@
+ 			compatible = "nuvoton,npcm750-fiu";
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+-			reg = <0xfb000000 0x1000>, <0x80000000 0x10000000>;
++			reg = <0xfb000000 0x1000>;
+ 			reg-names = "control", "memory";
+-			clocks = <&clk NPCM7XX_CLK_AHB>;
+-			clock-names = "clk_ahb";
++			clocks = <&clk NPCM7XX_CLK_SPI0>;
++			clock-names = "clk_spi0";
+ 			status = "disabled";
+ 		};
+ 
+@@ -241,10 +241,10 @@
+ 			compatible = "nuvoton,npcm750-fiu";
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+-			reg = <0xc0000000 0x1000>, <0xA0000000 0x20000000>;
++			reg = <0xc0000000 0x1000>;
+ 			reg-names = "control", "memory";
+-			clocks = <&clk NPCM7XX_CLK_AHB>;
+-			clock-names = "clk_ahb";
++			clocks = <&clk NPCM7XX_CLK_SPI3>;
++			clock-names = "clk_spi3";
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&spi3_pins>;
+ 			status = "disabled";
+@@ -254,10 +254,10 @@
+ 			compatible = "nuvoton,npcm750-fiu";
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+-			reg = <0xfb001000 0x1000>, <0xf8000000 0x2000000>;
++			reg = <0xfb001000 0x1000>;
+ 			reg-names = "control", "memory";
+-			clocks = <&clk NPCM7XX_CLK_AHB>;
+-			clock-names = "clk_ahb";
++			clocks = <&clk NPCM7XX_CLK_SPIX>;
++			clock-names = "clk_spix";
+ 			status = "disabled";
+ 		};
+ 
+-- 
+2.17.1
+
