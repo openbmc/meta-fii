@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: GPL-2.0
-// Copyright (c) 2019 Nuvoton Technology kwliu@nuvoton.com
+// Copyright (c) 2020 Fii USA Inc. Mustatfa Shehabi <Mustafa.Shehabi@fii-na.com>
 
 /dts-v1/;
-#include "nuvoton-npcm750.dtsi"
-#include "nuvoton-npcm750-kudo-gpio.dtsi"
+#include "nuvoton-npcm730.dtsi"
+#include "nuvoton-npcm730-kudo-gpio.dtsi"
 
 / {
-	model = "Nuvoton npcm750 KUDO RunBMC";
-	compatible = "nuvoton,npcm750";
+	model = "Fii Kudo Board (Device Tree v00.07)";
+	compatible = "nuvoton,npcm730";
 
 	aliases {
 		ethernet0 = &emc0;
@@ -294,27 +294,6 @@
 				status = "okay";
 			};
 
-			lpc_kcs: lpc_kcs@7000 {
-				kcs1: kcs1@0 {
-					status = "okay";
-				};
-
-				kcs2: kcs2@0 {
-					status = "okay";
-				};
-
-				kcs3: kcs3@0 {
-					status = "okay";
-				};
-			};
-
-			lpc_host: lpc_host@7000 {
-				lpc_bpc: lpc_bpc@40 {
-					monitor-ports = <0x80>;
-					status = "okay";
-				};
-			};
-
 			i2c1: i2c@81000 {
 				#address-cells = <1>;
 				#size-cells = <0>;
@@ -465,38 +444,6 @@
 					reg = <0x51>;
 					pagesize = <64>;
 					status = "okay";
-				};
-			};
-
-			pwm_fan:pwm-fan-controller@103000 {
-				pinctrl-names = "default";
-				pinctrl-0 = <&pwm0_pins &pwm1_pins
-				 		&pwm2_pins &pwm3_pins
-						&fanin0_pins &fanin1_pins
-						&fanin2_pins &fanin3_pins>;
-				status = "okay";
-				fan@0 {
-					reg = <0x00>;
-					fan-tach-ch = /bits/ 8 <0x00>;
-					cooling-levels = <127 255>;
-					fan_filter_en;
-				};
-				fan@1 {
-					reg = <0x01>;
-					fan-tach-ch = /bits/ 8 <0x01>;
-					cooling-levels = /bits/ 8 <127 255>;
-					fan_filter_en;
-				};
-				fan@2 {
-					reg = <0x02>;
-					fan-tach-ch = /bits/ 8 <0x02>;
-					cooling-levels = /bits/ 8 <127 255>;
-					fan_filter_en;
-				};
-				fan@3 {
-					reg = <0x03>;
-					fan-tach-ch = /bits/ 8 <0x03>;
-					cooling-levels = /bits/ 8 <127 255>;
 				};
 			};
 
