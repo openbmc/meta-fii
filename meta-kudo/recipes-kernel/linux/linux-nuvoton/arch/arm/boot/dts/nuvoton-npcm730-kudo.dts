@@ -6,7 +6,7 @@
 #include "nuvoton-npcm730-kudo-gpio.dtsi"
 
 / {
-	model = "Fii Kudo Board (Device Tree v00.07)";
+	model = "Fii Kudo Board (Device Tree v00.01)";
 	compatible = "nuvoton,npcm730";
 
 	aliases {
@@ -28,6 +28,7 @@
 		udc9 = &udc9;
 		emmc0 = &sdhci0;
 		vdma = &vdma;
+		i2c0 = &i2c0;
 		i2c1 = &i2c1;
 		i2c2 = &i2c2;
 		i2c3 = &i2c3;
@@ -100,51 +101,51 @@
 			status = "okay";
 		};
 
-		udc0:udc@f0830000 {
+		udc0: udc@f0830000 {
 			status = "okay";
 		};
 
-		udc1:udc@f0831000 {
+		udc1: udc@f0831000 {
 			status = "okay";
 		};
 
-		udc2:udc@f0832000 {
+		udc2: udc@f0832000 {
 			status = "okay";
 		};
 
-		udc3:udc@f0833000 {
+		udc3: udc@f0833000 {
 			status = "okay";
 		};
 
-		udc4:udc@f0834000 {
+		udc4: udc@f0834000 {
 			status = "okay";
 		};
 
-		udc5:udc@f0835000 {
+		udc5: udc@f0835000 {
 			status = "okay";
 		};
 
-		udc6:udc@f0836000 {
+		udc6: udc@f0836000 {
 			status = "okay";
 		};
 
-		udc7:udc@f0837000 {
+		udc7: udc@f0837000 {
 			status = "okay";
 		};
 
-		udc8:udc@f0838000 {
+		udc8: udc@f0838000 {
 			status = "okay";
 		};
 
-		udc9:udc@f0839000 {
+		udc9: udc@f0839000 {
 			status = "okay";
 		};
 
-		aes:aes@f0858000 {
+		aes: aes@f0858000 {
 			status = "okay";
 		};
 
-		sha:sha@f085a000 {
+		sha: sha@f085a000 {
 			status = "okay";
 		};
 
@@ -294,11 +295,110 @@
 				status = "okay";
 			};
 
+			i2c0: i2c@80000 {
+				#address-cells = <1>;
+				#size-cells = <0>;
+				bus-frequency = <100000>;
+				status = "disabled";
+			};
+
 			i2c1: i2c@81000 {
 				#address-cells = <1>;
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
+
+				i2c-switch@75 {
+					compatible = "nxp,pca9548";
+					#address-cells = <1>;
+					#size-cells = <0>;
+					reg = <0x75>;
+					i2c-mux-idle-disconnect;
+
+					i2c@2 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <2>;
+
+						max31790@58 {// Fan 
+							compatible = "maxim,max31790";
+							reg = <0x58>;
+						};
+					};
+
+					i2c@3 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <3>;
+
+						max31790@58 { // Fan 
+							compatible = "maxim,max31790";
+							reg = <0x58>;
+						};
+					};
+
+					i2c-bus@4 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <4>;
+
+						lm75@5c {//INLET1_T
+							compatible = "ti,lm75";
+							reg = <0x5c>;
+						};
+					};
+
+					i2c-bus@5 {//OUTLET1_T
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <5>;
+
+						lm75@5c {
+							compatible = "ti,lm75";
+							reg = <0x5c>;
+						};
+					};
+
+					i2c-bus@6 {//OUTLET2_T
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <6>;
+
+						lm75@5c {
+							compatible = "ti,lm75";
+							reg = <0x5c>;
+						};
+					};
+
+					i2c-bus@7 {//OUTLET3_T
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <7>;
+
+						lm75@5c {
+							compatible = "ti,lm75";
+							reg = <0x5c>;
+						};
+					};
+				};
+				i2c-switch@77 {
+					compatible = "nxp,pca9548";
+					#address-cells = <1>;
+					#size-cells = <0>;
+					reg = <0x77>;
+					i2c-mux-idle-disconnect;
+
+					i2c-bus@2 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <2>;
+
+						pmbus@74 { // STB-T
+							compatible = "pmbus";
+							reg = <0x74>;
+						};
+					};
+				};
 			};
 
 			i2c2: i2c@82000 {
@@ -306,6 +406,16 @@
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
+				
+				smpro@4f {
+					compatible = "ampere,smpro";
+					reg = <0x4f>;
+				};
+
+				smpro@4e {
+					compatible = "ampere,smpro";
+					reg = <0x4e>;
+				};
 			};
 
 			i2c3: i2c@83000 {
@@ -320,9 +430,35 @@
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
-				eeprom@50 {
-					compatible = "atmel,24c64";
-					reg = <0x50>;
+
+				i2c-switch@77 {
+					compatible = "nxp,pca9548";
+					#address-cells = <1>;
+					#size-cells = <0>;
+					reg = <0x77>;
+					i2c-mux-idle-disconnect;
+
+					i2c-bus@0 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <0>;
+
+						adm1266@40 { // ADC sensors
+							compatible = "adi,adm1266";
+							reg = <0x40>;
+						};
+					};
+
+					i2c-bus@1 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <1>;
+
+						adm1266@41 { // ADC sensors
+							compatible = "adi,adm1266";
+							reg = <0x41>;
+						};
+					};
 				};
 			};
 
@@ -366,10 +502,6 @@
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
-				tpm@20 {
-					compatible = "infineon,slb9645tt";
-					reg = <0x20>;
-				};
 			};
 
 			i2c11: i2c@8b000 {
@@ -377,26 +509,6 @@
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
-				pca9555@21 {
-					compatible = "nxp,pca9555";
-					reg = <0x21>;
-					gpio-controller;
-					#gpio-cells = <2>;
-				};
-				pca9554@38 {
-					compatible = "nxp,pca9554";
-					reg = <0x38>;
-					gpio-controller;
-					#gpio-cells = <2>;
-				};
-				ina219@40 {
-					compatible = "ti,ina219";
-					reg = <0x40>;
-				};
-				ina219@41 {
-					compatible = "ti,ina219";
-					reg = <0x41>;
-				};
 			};
 
 			i2c12: i2c@8c000 {
@@ -404,27 +516,10 @@
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
-				i2c-switch@70 {
-					compatible = "nxp,pca9548";
-					#address-cells = <1>;
-					#size-cells = <0>;
-					reg = <0x70>;
-					i2c-mux-idle-disconnect;
-					i2c-bus@0 {
-						#address-cells = <1>;
-						#size-cells = <0>;
-						reg = <0>;
-					};
 
-					i2c-bus@1 {
-						#address-cells = <1>;
-						#size-cells = <0>;
-						reg = <1>;
-					};
-				};
-				tmp75@48 {
-					compatible = "ti,tmp75";
-					reg = <0x48>;
+				ssif-bmc@10 {
+					compatible = "ssif-bmc";
+					reg = <0x10>;
 					status = "okay";
 				};
 			};
@@ -434,16 +529,56 @@
 				#size-cells = <0>;
 				bus-frequency = <100000>;
 				status = "okay";
-				tmp75@4a {
-					compatible = "ti,tmp75";
-					reg = <0x4a>;
-					status = "okay";
-				};
-				m24128_fru@51 {
-					compatible = "atmel,24c128";
-					reg = <0x51>;
-					pagesize = <64>;
-					status = "okay";
+
+				i2c-switch@77 {
+					compatible = "nxp,pca9548";
+					#address-cells = <1>;
+					#size-cells = <0>;
+					reg = <0x77>;
+					i2c-mux-idle-disconnect;
+
+					i2c-bus@3 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <3>;
+
+						lm75@28 {//M2_ZONE_T
+							compatible = "ti,lm75";
+							reg = <0x28>;
+						};
+					};
+
+					i2c-bus@4 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <4>;
+
+						lm75@29 {//BATT_ZONE_T
+							compatible = "ti,lm75";
+							reg = <0x29>;
+						};
+					};
+
+					i2c-bus@5 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <5>;
+
+						lm75@28 {//NBM1_ZONE_T
+							compatible = "ti,lm75";
+							reg = <0x28>;
+						};
+					};
+					i2c-bus@6 {
+						#address-cells = <1>;
+						#size-cells = <0>;
+						reg = <6>;
+
+						lm75@29 {//NBM2_ZONE_T
+							compatible = "ti,lm75";
+							reg = <0x29>;
+						};
+					};
 				};
 			};
 
@@ -461,25 +596,62 @@
 	pinctrl: pinctrl@f0800000 {
 		pinctrl-names = "default";
 		pinctrl-0 = <
-				&ddc_pins
-				&wdog1_pins
-				&wdog2_pins
-				&gpio138o_pins
-				&gpio139o_pins
-				&gpio89o_pins
-				&gpio143o_pins
-				&gpio9o_pins
-				&gpio231o_pins
-				&gpio140o_pins
-				&gpio142o_pins
-				&gpio90o_pins
-				&gpio88o_pins
-				&gpio141o_pins
-				&gpio87o_pins
-				&gpio11o_pins
-				&gpio24o_pins
-				&gpio137o_pins
-				&gpio25o_pins
+				&gpio61oh_pins
+				&gpio62oh_pins
+				&gpio161ol_pins
+				&gpio163i_pins
+				&gpio167ol_pins
+				&gpio95i_pins
+				&gpio65ol_pins
+				&gpio66oh_pins
+				&gpio67oh_pins
+				&gpio68ol_pins
+				&gpio69i_pins
+				&gpio70ol_pins
+				&gpio71i_pins
+				&gpio72i_pins
+				&gpio73i_pins
+				&gpio74i_pins
+				&gpio75i_pins
+				&gpio76i_pins
+				&gpio77i_pins
+				&gpio78i_pins
+				&gpio79ol_pins
+				&gpio80oh_pins
+				&gpio81i_pins
+				&gpio82i_pins
+				&gpio83i_pins
+				&gpio144i_pins
+				&gpio145i_pins
+				&gpio146i_pins
+				&gpio147oh_pins
+				&gpio168ol_pins
+				&gpio169oh_pins
+				&gpio170ol_pins
+				&gpio218oh_pins
+				&gpio37i_pins
+				&gpio38i_pins
+				&gpio39i_pins
+				&gpio40i_pins
+				&gpio121i_pins
+				&gpio122i_pins
+				&gpio123i_pins
+				&gpio124i_pins
+				&gpio125i_pins
+				&gpio126i_pins
+				&gpio127i_pins
+				&gpio136i_pins
+				&gpio137oh_pins
+				&gpio138i_pins
+				&gpio139i_pins
+				&gpio140i_pins
+				&gpio141i_pins
+				&gpio190oh_pins
+				&gpio191oh_pins
+				&gpio195ol_pins
+				&gpio196ol_pins
+				&gpio199i_pins
+				&gpio202ol_pins
 				>;
 	};
 
@@ -487,12 +659,7 @@
 		compatible = "gpio-leds";
 		heartbeat {
 		label = "heartbeat";
-			gpios = <&gpio3 14 1>;
-		};
-
-		identify {
-			label = "identify";
-			gpios = <&gpio3 15 1>;
+			gpios = <&gpio0 14 1>;
 		};
 	};
 
