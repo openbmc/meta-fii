@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1933e6c0_7692c710",
+        "filename": "meta-kudo/recipes-kernel/linux/linux-nuvoton_%.bbappend",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-11-19T22:14:53Z",
+      "side": 1,
+      "message": "From talking with other OpenBMC maintainers, this won\u0027t be able to be merged here. It\u0027s going to have to go into the kernel repo directly",
+      "revId": "629cc106d14418a7db3d35dfb68140701db7f164",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39878763_52719b25",
+        "filename": "meta-kudo/recipes-phosphor/ipmi/phosphor-ipmi-ssif/ssifbridged.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-11-19T22:14:53Z",
+      "side": 1,
+      "message": "Please request a new repo for this code",
+      "revId": "629cc106d14418a7db3d35dfb68140701db7f164",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
