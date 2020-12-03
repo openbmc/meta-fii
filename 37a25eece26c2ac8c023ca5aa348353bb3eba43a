@@ -1,0 +1,8 @@
+Ok-To-Test+1: Vivekanand Veeracholan <vveerach@google.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Vivekanand Veeracholan <vveerach@google.com>
+Submitted-by: Vivekanand Veeracholan <vveerach@google.com>
+Submitted-at: Thu, 03 Dec 2020 20:59:21 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/meta-fii/+/36665
+Project: openbmc/meta-fii
+Branch: refs/heads/master
