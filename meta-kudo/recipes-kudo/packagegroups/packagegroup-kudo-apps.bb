@@ -27,4 +27,5 @@ RDEPENDS_${PN}-kudo-common-utils = " \
     loadsvf \
     obmc-console \
     phosphor-sel-logger \
+    entity-manager \
     "
