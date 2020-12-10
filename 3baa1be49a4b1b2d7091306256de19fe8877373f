@@ -50,6 +50,23 @@
       "revId": "3baa1be49a4b1b2d7091306256de19fe8877373f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de6e96c6_76434fe3",
+        "filename": "meta-kudo/recipes-phosphor/configuration/kudo-yaml-config/kudo-ipmi-fru.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-12-10T21:20:12Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be needed since entity-manager will expose the FRUs instead",
+      "revId": "3baa1be49a4b1b2d7091306256de19fe8877373f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
