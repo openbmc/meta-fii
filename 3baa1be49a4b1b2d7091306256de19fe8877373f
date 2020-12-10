@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "fc3ac00d_f0947e9a",
+        "filename": "meta-kudo/recipes-bsp/u-boot/u-boot-nuvoton/kudo.cfg",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000590
+      },
+      "writtenOn": "2020-12-10T20:11:11Z",
+      "side": 1,
+      "message": "It is being removed here and added in the sensors patch.\nRemove this change from the patch and in sensors parch so the config stays.",
+      "revId": "3baa1be49a4b1b2d7091306256de19fe8877373f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e156a6ce_3d7f2942",
         "filename": "meta-kudo/recipes-phosphor/configuration/entity-manager_%.bbappend",
         "patchSetId": 7
