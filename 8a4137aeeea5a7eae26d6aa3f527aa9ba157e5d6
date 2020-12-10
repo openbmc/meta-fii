@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f24f3016_8e5fb799",
+        "filename": "meta-kudo/recipes-phosphor/configuration/kudo-yaml-config/ipmi-sensors-kudo.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000233
+      },
+      "writtenOn": "2020-12-10T21:17:44Z",
+      "side": 1,
+      "message": "What\u0027s the plan for moving this to entity-manager JSON config instead of static YAML?",
+      "revId": "8a4137aeeea5a7eae26d6aa3f527aa9ba157e5d6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
