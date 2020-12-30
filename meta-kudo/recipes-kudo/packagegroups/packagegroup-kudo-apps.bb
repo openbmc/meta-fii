@@ -17,6 +17,7 @@ SUMMARY_${PN}-kudo-system = "KUDO System"
 RDEPENDS_${PN}-kudo-system = " \
     google-ipmi-sys \
     google-ipmi-i2c \
+    phosphor-ipmi-flash \
     "
 
 SUMMARY_${PN}-kudo-common-utils = "KUDO common utils"
