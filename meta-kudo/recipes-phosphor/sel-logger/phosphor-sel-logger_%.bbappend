@@ -1,0 +1,3 @@
+# Enable threshold monitoring
+EXTRA_OECMAKE_append_kudo += "-DSEL_LOGGER_MONITOR_THRESHOLD_EVENTS=ON"
+EXTRA_OECMAKE_append_kudo += "-DREDFISH_LOG_MONITOR_PULSE_EVENTS=ON"
