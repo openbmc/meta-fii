@@ -17,6 +17,7 @@ CONSOLE_CONF_FMT = "file://server.{0}.conf"
 SRC_URI += "${@compose_list(d, 'CONSOLE_CONF_FMT', 'HOST_CONSOLE_TTY')}"
 SRC_URI += "file://${BPN}-server-setup.sh"
 SRC_URI += "file://${BPN}@.service"
+SRC_URI += "file://kudo_uart_mux_ctrl.sh"
 
 CONSOLE_SSH_SOCKET_FILE_FMT = "file://${PN}-{0}-ssh.socket"
 CONSOLE_SSH_SERVICE_FILE_FMT = "file://${PN}-{0}-ssh@.service"
@@ -50,4 +51,5 @@ do_install_append() {
 	# Overwrite base package's obmc-console@.service with our own
 	install -m 0644 ${WORKDIR}/${BPN}@.service ${D}${systemd_unitdir}/system/${BPN}@.service
 	install -d ${D}/usr/sbin
+	install -m 0755 ${WORKDIR}/kudo_uart_mux_ctrl.sh ${D}/${sbindir}/kudo_uart_mux_ctrl.sh
 }
