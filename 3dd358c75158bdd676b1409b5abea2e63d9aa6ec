@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a2a40c4_ecde8715",
+        "filename": "meta-kudo/conf/layer.conf",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000100
+      },
+      "writtenOn": "2021-01-19T18:08:44Z",
+      "side": 0,
+      "message": "Please split this specific line change into a separate patch so it can be merged ahead of this fixing the build.",
+      "revId": "3dd358c75158bdd676b1409b5abea2e63d9aa6ec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
