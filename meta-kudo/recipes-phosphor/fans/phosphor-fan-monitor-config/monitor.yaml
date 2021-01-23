@@ -1,0 +1,110 @@
+fans:
+  - inventory: /system/chassis/motherboard/MID_FAN0_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: MID_FAN0_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/MID_FAN1_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: MID_FAN1_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/MID_FAN2_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: MID_FAN2_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/MID_FAN3_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: MID_FAN3_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/REAR_FAN0_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: REAR_FAN0_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/REAR_FAN1_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: REAR_FAN1_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/REAR_FAN2_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: REAR_FAN2_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/REAR_FAN3_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: REAR_FAN3_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/REAR_FAN4_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: REAR_FAN4_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
+
+  - inventory: /system/chassis/motherboard/REAR_FAN5_PRSNT
+    allowed_out_of_range_time: 30
+    deviation: 15
+    num_sensors_nonfunc_for_fan_nonfunc: 1
+    sensors:
+      - name: REAR_FAN5_SPEED
+        has_target: true
+        target_interface: xyz.openbmc_project.Control.FanPwm
+        factor: 82
+        offset: 0
