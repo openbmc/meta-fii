@@ -1,30 +1,36 @@
-SUMMARY = "OpenBMC for KUDO system - Applications"
+SUMMARY = "OpenBMC for kudo system - Applications"
 PR = "r1"
 
 inherit packagegroup
+inherit obmc-phosphor-utils
 
 PROVIDES = "${PACKAGES}"
 PACKAGES = " \
-     ${PN}-kudo-system \
-     ${PN}-kudo-common-utils \
-     "
+	${PN}-kudo-chassis \
+	${PN}-kudo-system \
+	"
 
+PROVIDES += "virtual/obmc-chassis-mgmt"
 PROVIDES += "virtual/obmc-system-mgmt"
 
+RPROVIDES_${PN}-kudo-chassis += "virtual-obmc-chassis-mgmt"
 RPROVIDES_${PN}-kudo-system += "virtual-obmc-system-mgmt"
 
-SUMMARY_${PN}-kudo-system = "KUDO System"
-RDEPENDS_${PN}-kudo-system = " \
-    google-ipmi-sys \
-    google-ipmi-i2c \
-    "
+SUMMARY_${PN}-kudo-chassis = "Kudo Chassis"
+RDEPENDS_${PN}-kudo-chassis = " \
+        obmc-phosphor-buttons-signals \
+        obmc-phosphor-buttons-handler \
+	phosphor-hostlogger \
+	phosphor-sel-logger \
+	phosphor-logging \
+        "
 
-SUMMARY_${PN}-kudo-common-utils = "KUDO common utils"
-RDEPENDS_${PN}-kudo-common-utils = " \
-    ipmitool \
-    phosphor-webui \
-    phosphor-host-postd \
-    loadsvf \
-    obmc-console \
-    phosphor-sel-logger \
-    "
+SUMMARY_${PN}-kudo-system = "kudo System"
+RDEPENDS_${PN}-kudo-system = " \
+	ipmitool \
+	google-ipmi-sys \
+	google-ipmi-i2c \
+	phosphor-ipmi-flash \
+	phosphor-host-postd \
+	obmc-console \
+	"
