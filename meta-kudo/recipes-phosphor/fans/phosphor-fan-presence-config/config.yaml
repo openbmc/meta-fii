@@ -1,0 +1,69 @@
+- name: MID_FAN0_PRSNT
+  path: /system/chassis/motherboard/MID_FAN0_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - MID_FAN0_SPEED
+
+- name: MID_FAN1_PRSNT
+  path: /system/chassis/motherboard/MID_FAN1_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - MID_FAN1_SPEED
+
+- name: MID_FAN2_PRSNT
+  path: /system/chassis/motherboard/MID_FAN2_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - MID_FAN2_SPEED
+
+- name: MID_FAN3_PRSNT
+  path: /system/chassis/motherboard/MID_FAN3_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - MID_FAN3_SPEED
+
+- name: REAR_FAN0_PRSNT
+  path: /system/chassis/motherboard/REAR_FAN0_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - REAR_FAN0_SPEED
+
+- name: REAR_FAN1_PRSNT
+  path: /system/chassis/motherboard/REAR_FAN1_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - REAR_FAN1_SPEED
+
+- name: REAR_FAN2_PRSNT
+  path: /system/chassis/motherboard/REAR_FAN2_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - REAR_FAN2_SPEED
+
+- name: REAR_FAN3_PRSNT
+  path: /system/chassis/motherboard/REAR_FAN3_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - REAR_FAN3_SPEED
+
+- name: REAR_FAN4_PRSNT
+  path: /system/chassis/motherboard/REAR_FAN4_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - REAR_FAN4_SPEED
+
+- name: REAR_FAN5_PRSNT
+  path: /system/chassis/motherboard/REAR_FAN5_PRSNT
+  methods:
+    - type: tach
+      sensors:
+        - REAR_FAN5_SPEED
