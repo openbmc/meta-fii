@@ -33,4 +33,7 @@ RDEPENDS_${PN}-kudo-system = " \
 	phosphor-ipmi-flash \
 	phosphor-host-postd \
 	obmc-console \
+	kudo-boot \
+	kudo-initialize \
+	kudo-fw-utility \
 	"
