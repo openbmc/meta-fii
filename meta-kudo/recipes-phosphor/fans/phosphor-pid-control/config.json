@@ -1,0 +1,1078 @@
+{
+    "sensors" : [
+        {
+            "name": "REAR_FAN0_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/fan1_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/pwm1",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "REAR_FAN1_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/fan2_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/pwm2",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "REAR_FAN2_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/fan3_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/pwm3",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "REAR_FAN3_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/fan4_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/pwm4",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "REAR_FAN4_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/fan5_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/pwm5",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "REAR_FAN5_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/fan6_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@2/i2c-16/16-0058/hwmon/**/pwm6",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "MID_FAN0_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/fan1_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/pwm1",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "MID_FAN1_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/fan2_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/pwm2",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "MID_FAN2_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/fan3_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/pwm3",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "MID_FAN3_SPEED",
+            "type": "fan",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/fan4_input",
+            "writePath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/i2c-switch@75/i2c-bus@3/i2c-17/17-0058/hwmon/**/pwm4",
+            "min": 0,
+            "max": 255
+        },
+        {
+            "name": "CPU0_SOC_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004f/hwmon/**/temp1_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU0_SOC_VRD_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004f/hwmon/**/temp2_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU0_DIMM_VRD_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004f/hwmon/**/temp3_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU0_CORE_VRD_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004f/hwmon/**/temp4_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU0_DIMMG0_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004f/hwmon/**/temp5_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU0_DIMMG1_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004f/hwmon/**/temp6_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU1_SOC_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004e/hwmon/**/temp1_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU1_SOC_VRD_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004e/hwmon/**/temp2_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU1_DIMM_VRD_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004e/hwmon/**/temp3_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU1_CORE_VRD_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004e/hwmon/**/temp4_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU1_DIMMG0_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004e/hwmon/**/temp5_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "CPU1_DIMMG1_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@82000/i2c-2/2-004e/hwmon/**/temp6_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "Mobo_M2_ZONE_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@80000/i2c-0/0-0077/i2c-switch@77/i2c-bus@3/i2c-14/14-0028/hwmon/**/temp6_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "Mobo_BATT_ZONE_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@80000/i2c-0/0-0077/i2c-switch@77/i2c-bus@4/i2c-15/15-0029/hwmon/**/temp6_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "Mobo_NBM1_ZONE_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@8d000/i2c-13/13-0077/i2c-switch@77/i2c-bus@5/i2c-19/19-0029/hwmon/**/temp1_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "Mobo_NBM2_ZONE_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@8d000/i2c-13/13-0077/i2c-switch@77/i2c-bus@6/i2c-19/19-0029/hwmon/**/temp1_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        },
+        {
+            "name": "Mobo_STB_T",
+            "type": "temp",
+            "readPath": "/sys/devices/platform/ahb/ahb:apb/i2c-bus@81000/i2c-1/1-0077/i2c-switch@77/i2c-bus@2/i2c-23/23-0074/hwmon/**/temp1_input",
+            "writePath": "",
+            "min": 0,
+            "max": 0,
+            "timeout": 0
+        }
+    ],
+    "zones" : [
+        {
+            "id":1,
+            "minThermalOutput":25.0,
+            "failsafePercent":100.0,
+            "pids": [
+                {
+                    "name": "REAR_FAN0-1_SPEED",
+                    "type": "fan",
+                    "inputs": ["REAR_FAN0_SPEED", "REAR_FAN1_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                },
+		{
+                    "name": "CPU0_SOC_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_SOC_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_SOC_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_SOC_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_DIMM_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_DIMM_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_CORE_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_CORE_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_DIMMG0_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_DIMMG0_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_DIMMG1_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_DIMMG1_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_NBM1_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_NBM1_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_NBM2_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_NBM2_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_STB_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_STB_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		}
+            
+            ]
+        },
+        {
+            "id":2,
+            "minThermalOutput":25.0,
+            "failsafePercent":100.0,
+            "pids": [
+                {
+                    "name": "REAR_FAN2_SPEED",
+                    "type": "fan",
+                    "inputs": ["REAR_FAN2_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                },
+		{
+                    "name": "CPU0_SOC_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_SOC_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_SOC_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_SOC_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_DIMM_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_DIMM_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_CORE_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_CORE_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_DIMMG0_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_DIMMG0_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_M2_ZONE_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_M2_ZONE_T"],
+                    "setpoint": 50.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_BATT_ZONE_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_BATT_ZONE_T"],
+                    "setpoint": 50.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU0_DIMMG1_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_DIMMG1_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		}
+            ]
+        },
+        {
+            "id":3,
+            "minThermalOutput":25.0,
+            "failsafePercent":100.0,
+            "pids": [
+                {
+                    "name": "REAR_FAN3_SPEED",
+                    "type": "fan",
+                    "inputs": ["REAR_FAN3_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                },
+		{
+                    "name": "CPU1_SOC_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_SOC_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_SOC_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_SOC_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_DIMM_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_DIMM_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_CORE_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_CORE_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_DIMMG0_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_DIMMG0_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_DIMMG1_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_DIMMG1_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_M2_ZONE_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_M2_ZONE_T"],
+                    "setpoint": 50.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_BATT_ZONE_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_BATT_ZONE_T"],
+                    "setpoint": 50.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		}
+            ]
+        },
+        {
+            "id":4,
+            "minThermalOutput":25.0,
+            "failsafePercent":100.0,
+            "pids": [
+                {
+                    "name": "REAR_FAN4-5_SPEED",
+                    "type": "fan",
+                    "inputs": ["REAR_FAN4_SPEED", "REAR_FAN5_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                },
+		{
+                    "name": "CPU1_SOC_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_SOC_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_SOC_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU0_SOC_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_DIMM_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_DIMM_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_CORE_VRD_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_CORE_VRD_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_DIMMG0_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_DIMMG0_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "CPU1_DIMMG1_T",
+                    "type": "temp",
+                    "inputs": ["CPU1_DIMMG1_T"],
+                    "setpoint": 60.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 4.5,
+                        "integralCoeff": 0.3,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_NBM1_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_NBM1_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_NBM2_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_NBM2_T"],
+                    "setpoint": 90.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		},
+		{
+                    "name": "Mobo_STB_T",
+                    "type": "temp",
+                    "inputs": ["Mobo_STB_T"],
+                    "setpoint": 105.0,
+                    "pid": {
+                        "samplePeriod": 3.0,
+                        "proportionalCoeff": 2.0,
+                        "integralCoeff": 0.1,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 16000.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+		}
+            ]
+        },
+        {
+            "id":5,
+            "minThermalOutput":25.0,
+            "failsafePercent":100.0,
+            "pids": [
+                {
+                    "name": "MID_FAN0_SPEED",
+                    "type": "fan",
+                    "inputs": ["MID_FAN0_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                },
+                {
+                    "name": "MID_FAN1_SPEED",
+                    "type": "fan",
+                    "inputs": ["MID_FAN1_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "id":6,
+            "minThermalOutput":25.0,
+            "failsafePercent":100.0,
+            "pids": [
+                {
+                    "name": "MID_FAN2_SPEED",
+                    "type": "fan",
+                    "inputs": ["MID_FAN2_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                },
+                {
+                    "name": "MID_FAN3_SPEED",
+                    "type": "fan",
+                    "inputs": ["MID_FAN3_SPEED"],
+                    "setpoint": 65.0,
+                    "pid": {
+                        "samplePeriod": 1.0,
+                        "proportionalCoeff": 0.0,
+                        "integralCoeff": 0.0,
+                        "feedFwdOffsetCoeff": 0.0,
+                        "feedFwdGainCoeff": 0.0063,
+                        "integralLimit_min": 0.0,
+                        "integralLimit_max": 0.0,
+                        "outLim_min": 25.0,
+                        "outLim_max": 100.0,
+                        "slewNeg": 0.0,
+                        "slewPos": 0.0
+                    }
+                }
+            ]
+        }
+        ]
+}
