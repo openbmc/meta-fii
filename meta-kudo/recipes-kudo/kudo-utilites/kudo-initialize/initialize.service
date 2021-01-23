@@ -1,0 +1,12 @@
+[Unit]
+Description = Kudo BMC Initialize Procedure Functions
+
+[Service]
+Restart=no
+RemainAfterExit=true
+Type=oneshot
+ExecStart=/usr/sbin/mac_ctrl.sh
+StandardOutput=syslog
+
+[Install]
+WantedBy=sysinit.target
