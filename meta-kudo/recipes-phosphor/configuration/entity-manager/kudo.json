@@ -1,0 +1,40 @@
+[
+    {
+        "Exposes": [
+            {
+                "Address": "$address",
+                "Bus": "$bus",
+                "Name": "BMC FRU",
+                "Type": "EEPROM"
+            }
+        ],
+        "Name": "kudo BMC",
+	"Probe": "xyz.openbmc_project.FruDevice({'BOARD_SERIAL_NUMBER': 'ACN*'})",
+        "Type": "Board",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "$BOARD_MANUFACTURER",
+            "Model": "$BOARD_PRODUCT_NAME",
+            "PartNumber": "$BOARD_PART_NUMBER",
+            "SerialNumber": "$BOARD_SERIAL_NUMBER"
+        }
+    },
+    {
+        "Exposes": [
+            {
+                "Address": "$address",
+                "Bus": "$bus",
+                "Name": "MB FRU",
+                "Type": "EEPROM"
+            }
+        ],
+        "Name": "kudo MB",
+        "Probe": "xyz.openbmc_project.FruDevice({'BOARD_SERIAL_NUMBER': 'MCN*'})",
+        "Type": "Board",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "$BOARD_MANUFACTURER",
+            "Model": "$BOARD_PRODUCT_NAME",
+            "PartNumber": "$BOARD_PART_NUMBER",
+            "SerialNumber": "$BOARD_SERIAL_NUMBER"
+        }
+    }
+]
