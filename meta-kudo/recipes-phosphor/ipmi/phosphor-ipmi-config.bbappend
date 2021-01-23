@@ -1,1 +1,1 @@
-FILESEXTRAPATHS_append_kudo := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS_prepend_kudo := "${THISDIR}/${PN}:"
