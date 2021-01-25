@@ -18,8 +18,7 @@ RPROVIDES_${PN}-kudo-system += "virtual-obmc-system-mgmt"
 
 SUMMARY_${PN}-kudo-chassis = "Kudo Chassis"
 RDEPENDS_${PN}-kudo-chassis = " \
-        obmc-phosphor-buttons-signals \
-        obmc-phosphor-buttons-handler \
+	x86-power-control \
 	phosphor-hostlogger \
 	phosphor-sel-logger \
 	phosphor-logging \
