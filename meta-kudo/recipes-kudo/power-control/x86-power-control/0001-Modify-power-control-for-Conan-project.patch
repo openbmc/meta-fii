@@ -1,0 +1,354 @@
+From dedf2eeda6f0127d21e34fec9ca746422b71659a Mon Sep 17 00:00:00 2001
+From: Brandon <brandon.ong@fii-na.com>
+Date: Sat, 23 Jan 2021 22:51:04 -0600
+Subject: [PATCH] Modify power control for Conan project
+
+---
+ .../config/power-config-host0.json            |  15 +-
+ power-control-x86/src/power_control.cpp       | 160 ++++++++++++++----
+ 2 files changed, 129 insertions(+), 46 deletions(-)
+
+diff --git a/power-control-x86/config/power-config-host0.json b/power-control-x86/config/power-config-host0.json
+index 567f419..65fed89 100644
+--- a/power-control-x86/config/power-config-host0.json
++++ b/power-control-x86/config/power-config-host0.json
+@@ -1,15 +1,8 @@
+ {
+-  "IdButton": "ID_BUTTON",
+-  "NMIButton": "NMI_BUTTON",
+-  "NMIOut": "NMI_OUT",
+-  "PostComplete": "POST_COMPLETE",
+   "PwrButton": "POWER_BUTTON",
+   "PwrOK": "PS_PWROK",
+-  "PwrOut": "POWER_OUT",
++  "PwrOutOn": "POWER_OUT_ON",
++  "PwrOutOff": "POWER_OUT_OFF",
+   "RstButton": "RESET_BUTTON",
+-  "RstOut": "RESET_OUT",
+-  "SIOOnCtl": "SIO_ONCONTROL",
+-  "SIOPwrGd": "SIO_POWER_GOOD",
+-  "SIOS5": "SIO_S5"
+-}
+-
++  "RstOut": "RESET_OUT"
++}
+\ No newline at end of file
+diff --git a/power-control-x86/src/power_control.cpp b/power-control-x86/src/power_control.cpp
+index 8daf4b7..39000f6 100644
+--- a/power-control-x86/src/power_control.cpp
++++ b/power-control-x86/src/power_control.cpp
+@@ -40,7 +40,8 @@ std::shared_ptr<sdbusplus::asio::connection> conn;
+ 
+ static std::string node = "0";
+ 
+-static std::string powerOutName;
++static std::string powerOutOnName;
++static std::string powerOutOffName;
+ static std::string powerOkName;
+ static std::string resetOutName;
+ static std::string nmiOutName;
+@@ -50,6 +51,7 @@ static std::string sioS5Name;
+ static std::string postCompleteName;
+ static std::string powerButtonName;
+ static std::string resetButtonName;
++// static std::string shutdownAckName;
+ static std::string idButtonName;
+ static std::string nmiButtonName;
+ 
+@@ -65,17 +67,18 @@ static std::shared_ptr<sdbusplus::asio::dbus_interface> osIface;
+ static std::shared_ptr<sdbusplus::asio::dbus_interface> idButtonIface;
+ static std::shared_ptr<sdbusplus::asio::dbus_interface> nmiOutIface;
+ static std::shared_ptr<sdbusplus::asio::dbus_interface> restartCauseIface;
++// static std::shared_ptr<sdbusplus::asio::dbus_interface> shutdownAckIface;
+ 
+ static gpiod::line powerButtonMask;
+ static gpiod::line resetButtonMask;
+ static bool nmiButtonMasked = false;
+ 
+-const static constexpr int powerPulseTimeMs = 200;
+-const static constexpr int forceOffPulseTimeMs = 15000;
++const static constexpr int powerPulseTimeMs = 1500;
++const static constexpr int forceOffPulseTimeMs = 6000;
+ const static constexpr int resetPulseTimeMs = 500;
+ const static constexpr int powerCycleTimeMs = 5000;
+ const static constexpr int sioPowerGoodWatchdogTimeMs = 1000;
+-const static constexpr int psPowerOKWatchdogTimeMs = 8000;
++const static constexpr int psPowerOKWatchdogTimeMs = 30000;
+ const static constexpr int gracefulPowerOffTimeMs = 60000;
+ const static constexpr int warmResetCheckTimeMs = 500;
+ const static constexpr int buttonMaskTimeMs = 60000;
+@@ -120,6 +123,8 @@ static gpiod::line powerButtonLine;
+ static boost::asio::posix::stream_descriptor powerButtonEvent(io);
+ static gpiod::line resetButtonLine;
+ static boost::asio::posix::stream_descriptor resetButtonEvent(io);
++// static gpiod::line shutdownAckLine;
++// static boost::asio::posix::stream_descriptor shutdownAckEvent(io);
+ static gpiod::line nmiButtonLine;
+ static boost::asio::posix::stream_descriptor nmiButtonEvent(io);
+ static gpiod::line idButtonLine;
+@@ -1047,7 +1052,7 @@ static int setGPIOOutputForMs(const std::string& name, const int value,
+                               const int durationMs)
+ {
+     // If the requested GPIO is masked, use the mask line to set the output
+-    if (powerButtonMask && name == power_control::powerOutName)
++    if (powerButtonMask && name == power_control::powerOutOnName)
+     {
+         return setMaskedGPIOOutputForMs(powerButtonMask, name, value,
+                                         durationMs);
+@@ -1086,17 +1091,17 @@ static int setGPIOOutputForMs(const std::string& name, const int value,
+ 
+ static void powerOn()
+ {
+-    setGPIOOutputForMs(power_control::powerOutName, 0, powerPulseTimeMs);
++    setGPIOOutputForMs(power_control::powerOutOnName, 1, powerPulseTimeMs);
+ }
+ 
+ static void gracefulPowerOff()
+ {
+-    setGPIOOutputForMs(power_control::powerOutName, 0, powerPulseTimeMs);
++    setGPIOOutputForMs(power_control::powerOutOffName, 0, powerPulseTimeMs);
+ }
+ 
+ static void forcePowerOff()
+ {
+-    if (setGPIOOutputForMs(power_control::powerOutName, 0,
++    if (setGPIOOutputForMs(power_control::powerOutOffName, 0,
+                            forceOffPulseTimeMs) < 0)
+     {
+         return;
+@@ -1133,7 +1138,7 @@ static void forcePowerOff()
+ 
+ static void reset()
+ {
+-    setGPIOOutputForMs(power_control::resetOutName, 0, resetPulseTimeMs);
++    setGPIOOutputForMs(power_control::resetOutName, 1, resetPulseTimeMs);
+ }
+ 
+ static void gracefulPowerOffTimerStart()
+@@ -1424,10 +1429,12 @@ static void powerStateOn(const Event event)
+         case Event::powerButtonPressed:
+             setPowerState(PowerState::gracefulTransitionToOff);
+             gracefulPowerOffTimerStart();
++            gracefulPowerOff();
+             break;
+         case Event::resetButtonPressed:
+-            setPowerState(PowerState::checkForWarmReset);
+-            warmResetCheckTimerStart();
++            //setPowerState(PowerState::checkForWarmReset);
++            //warmResetCheckTimerStart();
++            reset();
+             break;
+         case Event::powerOffRequest:
+             setPowerState(PowerState::transitionToOff);
+@@ -1848,6 +1855,34 @@ static void resetButtonHandler()
+         });
+ }
+ 
++// // Shutdown ACK handler for Altra Processor
++// static void shutdownAckHandler()
++// {
++//     gpiod::line_event gpioLineEvent = shutdownAckLine.event_read();
++
++//     if (gpioLineEvent.event_type == gpiod::line_event::FALLING_EDGE)
++//     {
++//          std::cerr << "Shutdown Acknowledge Received by BMC.\n";
++//          resetButtonIface->set_property("ButtonPressed", true);
++//     }
++//     else if (gpioLineEvent.event_type == gpiod::line_event::RISING_EDGE)
++//     {
++//          std::cerr << "Shutdown Acknowledge reset.\n";
++//     }
++
++//     shutdownAckEvent.async_wait(
++//         boost::asio::posix::stream_descriptor::wait_read,
++//         [](const boost::system::error_code ec) {
++//             if (ec)
++//             {
++//                 std::cerr << "shutdown ack handler error: " << ec.message()
++//                           << "\n";
++//                 return;
++//             }
++//             shutdownAckHandler();
++//         });
++// }
++
+ #ifdef CHASSIS_SYSTEM_RESET
+ static constexpr auto systemdBusname = "org.freedesktop.systemd1";
+ static constexpr auto systemdPath = "/org/freedesktop/systemd1";
+@@ -2114,9 +2149,14 @@ static int loadConfigValues()
+         powerOkName = data["PwrOK"];
+     }
+ 
+-    if (data.contains("PwrOut"))
++    if (data.contains("PwrOutOn"))
++    {
++        powerOutOnName = data["PwrOutOn"];
++    }
++
++    if (data.contains("PwrOutOff"))
+     {
+-        powerOutName = data["PwrOut"];
++        powerOutOffName = data["PwrOutOff"];
+     }
+ 
+     if (data.contains("RstButton"))
+@@ -2124,6 +2164,11 @@ static int loadConfigValues()
+         resetButtonName = data["RstButton"];
+     }
+ 
++    // if (data.contains("ShdAck"))
++    // {
++    //     shutdownAckName = data["ShdAck"];
++    // }
++
+     if (data.contains("RstOut"))
+     {
+         resetOutName = data["RstOut"];
+@@ -2262,6 +2307,24 @@ int main(int argc, char* argv[])
+         std::cerr << "ResetButton not defined...\n";
+     }
+ 
++    // // Request SHUTDOWN_ACK GPIO events
++    // if (!power_control::shutdownAckName.empty())
++    // {
++    //     std::cerr << "ShutdownAcknowledge before...\n";
++    //     if (!power_control::requestGPIOEvents(power_control::shutdownAckName,
++    //                                           power_control::shutdownAckHandler,
++    //                                           power_control::shutdownAckLine,
++    //                                           power_control::shutdownAckEvent))
++    //     {
++    //         return -1;
++    //     }
++    // }
++    // else
++    // {
++    //     std::cerr << "ShutdownAcknowledge not defined...\n";
++    // }
++    //     std::cerr << "ShutdownAcknowledge after...\n";
++
+     // Request NMI_BUTTON GPIO events
+     if (!power_control::nmiButtonName.empty())
+     {
+@@ -2279,23 +2342,23 @@ int main(int argc, char* argv[])
+     }
+ 
+     // Request POST_COMPLETE GPIO events
+-    if (!power_control::postCompleteName.empty())
+-    {
+-        if (!power_control::requestGPIOEvents(
+-                power_control::postCompleteName,
+-                power_control::postCompleteHandler,
+-                power_control::postCompleteLine,
+-                power_control::postCompleteEvent))
+-        {
+-            return -1;
+-        }
+-    }
+-    else
+-    {
+-        std::cerr
+-            << "postComplete name should be configured from json config file\n";
+-        return -1;
+-    }
++    // if (!power_control::postCompleteName.empty())
++    // {
++    //     if (!power_control::requestGPIOEvents(
++    //             power_control::postCompleteName,
++    //             power_control::postCompleteHandler,
++    //             power_control::postCompleteLine,
++    //             power_control::postCompleteEvent))
++    //     {
++    //         return -1;
++    //     }
++    // }
++    // else
++    // {
++    //     std::cerr
++    //         << "postComplete name should be configured from json config file\n";
++    //     return -1;
++    // }
+ 
+     // initialize NMI_OUT GPIO.
+     power_control::setGPIOOutput(power_control::nmiOutName, 0,
+@@ -2303,12 +2366,16 @@ int main(int argc, char* argv[])
+ 
+     // Initialize POWER_OUT and RESET_OUT GPIO.
+     gpiod::line line;
+-    if (!power_control::setGPIOOutput(power_control::powerOutName, 1, line))
++    if (!power_control::setGPIOOutput(power_control::powerOutOnName, 0, line))
+     {
+         return -1;
+     }
+-
+-    if (!power_control::setGPIOOutput(power_control::resetOutName, 1, line))
++    
++    if (!power_control::setGPIOOutput(power_control::powerOutOffName, 1, line))
++    {
++        return -1;
++    }
++    if (!power_control::setGPIOOutput(power_control::resetOutName, 0, line))
+     {
+         return -1;
+     }
+@@ -2366,7 +2433,8 @@ int main(int argc, char* argv[])
+             else if (requested ==
+                      "xyz.openbmc_project.State.Host.Transition.Reboot")
+             {
+-                sendPowerControlEvent(power_control::Event::powerCycleRequest);
++                //sendPowerControlEvent(power_control::Event::powerCycleRequest);
++                sendPowerControlEvent(power_control::Event::resetRequest);
+                 addRestartCause(power_control::RestartCause::command);
+             }
+             else if (requested == "xyz.openbmc_project.State.Host.Transition."
+@@ -2501,7 +2569,7 @@ int main(int argc, char* argv[])
+                     return 1;
+                 }
+                 if (!power_control::setGPIOOutput(
+-                        power_control::powerOutName, 1,
++                        power_control::powerOutOnName, 1,
+                         power_control::powerButtonMask))
+                 {
+                     throw std::runtime_error("Failed to request GPIO");
+@@ -2577,6 +2645,26 @@ int main(int argc, char* argv[])
+         power_control::resetButtonIface->initialize();
+     }
+ 
++    // if (!power_control::shutdownAckName.empty())
++    // {
++    //     // Shutdown Acknowledge Service
++    //     sdbusplus::asio::object_server shutdownAckServer =
++    //     sdbusplus::asio::object_server(power_control::conn);
++
++    //     // Shutdown Acknowledge Interface
++    //     power_control::shutdownAckIface = shutdownAckServer.add_interface(
++    //         "/xyz/openbmc_project/control/host0/shutdown_ack",
++    //         "xyz.openbmc_project.Control.Host.ShutdownAck");
++        
++    //     bool shutdownAckReceived =
++    //         power_control::resetButtonLine.get_value() == 0;
++    //     // Check Shutdown Acknowledge state
++    //     power_control::shutdownAckIface->register_property("AckReceived",
++    //                                                         shutdownAckReceived);
++            
++    //     power_control::shutdownAckIface->initialize();        
++    // }
++
+     if (power_control::nmiButtonLine)
+     {
+         // NMI Button Interface
+@@ -2645,6 +2733,7 @@ int main(int argc, char* argv[])
+     }
+ 
+     // OS State Service
++    /*
+     sdbusplus::asio::object_server osServer =
+         sdbusplus::asio::object_server(power_control::conn);
+ 
+@@ -2664,6 +2753,7 @@ int main(int argc, char* argv[])
+                                               std::string(osState));
+ 
+     power_control::osIface->initialize();
++    */
+ 
+     // Restart Cause Service
+     sdbusplus::asio::object_server restartCauseServer =
