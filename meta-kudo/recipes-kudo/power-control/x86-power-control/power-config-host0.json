@@ -1,0 +1,9 @@
+{
+  "PwrButton": "POWER_BUTTON",
+  "PwrOK": "PS_PWROK",
+  "PwrOutOn": "POWER_OUT_ON",
+  "PwrOutOff": "POWER_OUT_OFF",
+  "RstButton": "RESET_BUTTON",
+  "RstOut": "RESET_OUT"
+}
+
