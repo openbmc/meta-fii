@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e793d14_32908c5a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000682
+      },
+      "writtenOn": "2021-01-26T19:13:34Z",
+      "side": 1,
+      "message": "nit: typo, \"kduo\" -\u003e \"kudo\"",
+      "revId": "f361be49f02c6722509d7ece3effa1e504e919c1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
