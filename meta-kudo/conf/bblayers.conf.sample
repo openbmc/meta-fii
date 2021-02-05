@@ -13,6 +13,7 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-nuvoton \
   ##OEROOT##/meta-google \
+  ##OEROOT##/meta-fii \
   ##OEROOT##/meta-fii/meta-kudo \
   "
 BBLAYERS_NON_REMOVABLE ?= " \
@@ -23,5 +24,6 @@ BBLAYERS_NON_REMOVABLE ?= " \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-nuvoton \
   ##OEROOT##/meta-google \
+  ##OEROOT##/meta-fii \
   ##OEROOT##/meta-fii/meta-kudo \
   "
