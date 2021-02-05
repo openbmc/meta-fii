@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a2678e4_8cb35e78",
+        "filename": "meta-kudo/conf/machine/kudo.conf",
+        "patchSetId": 18
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000590
+      },
+      "writtenOn": "2021-02-05T05:00:10Z",
+      "side": 1,
+      "message": "move to a separate change.",
+      "revId": "814e1050ebc4717595924c5c6ac634b76187442a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
