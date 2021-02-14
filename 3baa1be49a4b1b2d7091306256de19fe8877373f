@@ -67,6 +67,24 @@
       "revId": "3baa1be49a4b1b2d7091306256de19fe8877373f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "005aaebe_d8267428",
+        "filename": "meta-kudo/recipes-phosphor/configuration/kudo-yaml-config/kudo-ipmi-fru.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000920
+      },
+      "writtenOn": "2021-02-14T06:37:19Z",
+      "side": 1,
+      "message": "if you don\u0027t have this yaml file, then when you use the ipmitool fru command to list all fru devices, it will base on the default one in phosphor-host-ipmid/scripts/fru-read-example.yaml\n\nIt lists as below\nroot@kudo:~# ipmitool fru\nFRU Device Description : Builtin FRU Device (ID 0)\n Device not present (Unspecified error)\nFRU Device Description : dimm0 (ID 1)\n Device not present (Unspecified error)\nFRU Device Description : dimm1 (ID 2)\n Device not present (Unspecified error)\nFRU Device Description : cpu0 (ID 3)\n Device not present (Unspecified error)\nFRU Device Description : cpu1 (ID 4)\n Device not present (Unspecified error)",
+      "parentUuid": "de6e96c6_76434fe3",
+      "revId": "3baa1be49a4b1b2d7091306256de19fe8877373f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
